@@ -1,0 +1,41 @@
+<div class="containter showing-the-page">
+  <div class="title">{{ $ctrl.allBlogs.onePost.title }}</div>
+  <div class="author">By: {{ $ctrl.allBlogs.onePost.author }}</div>
+
+  <div class="image-and-comments">
+    <div class="image-edit">
+      <img ng-src="{{$ctrl.allBlogs.onePost.image_url}}" height="400" width="700">
+    </div>
+    <div class="comments-edit">
+        <div class="add-comments-edit-page" ng-repeat="comment in $ctrl.allBlogs.oneBlogComment">
+
+          <span class="comment-content">-{{ comment.comment }}</span><br><span class="comment-author">From: {{ comment.author }}</span><br>
+          <img src="../images/delete.png" height="30" width="30" ng-click="$ctrl.removeCommentFromEditPage(comment.id, $ctrl.allBlogs.onePost.id)">
+
+        </div>
+        <form name="addComment" ng-submit="$ctrl.newComment($ctrl.newCommentPost, $ctrl.allBlogs.oneBlogComment, $ctrl.allBlogs.onePost, addComment)">
+          <label for="comment-author-{{$ctrl.allBlogs.onePost.id}}">Author</label>
+          <input type="text" id="comment-author-{{$ctrl.allBlogs.onePost.id}}" name="author" ng-model="$ctrl.newCommentPost.author"
+          ng-minlength="1"
+          ng-class="{'not-valid':addComment.author.$touched && addComment.author.$invalid}"
+          required>
+          <label for="comment-comment-{{$ctrl.allBlogs.onePost.id}}">Comment</label>
+          <input type="text" id="comment-comment-{{$ctrl.allBlogs.onePost.id}}" name="comment"
+          ng-model="$ctrl.newCommentPost.comment"
+          ng-minlength="1"
+          ng-class="{'not-valid':addComment.comment.$touched && addComment.comment.$invalid}"
+          required>
+          <input type="submit" name="submit" value="Add Comment">
+        </form>
+    </div>
+
+  </div>
+
+  <div class="votes">Votes {{ $ctrl.allBlogs.onePost.votes }}</div>
+
+  <span>Posted </span><span am-time-ago="$ctrl.allBlogs.onePost.date"></span><span> on {{$ctrl.allBlogs.onePost.date | amCalendar:referenceTime:formats}}</span>
+  <br><br>
+  <div class="blog-post">{{ $ctrl.allBlogs.onePost.body }}</div>
+
+
+</div>

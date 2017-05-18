@@ -1,0 +1,53 @@
+
+<div class="add-post">
+
+  <button type="button" ng-click="$ctrl.custom=!$ctrl.custom">Add Post</button>
+  <form ng-show="$ctrl.custom" name="addPost" ng-submit="$ctrl.submit(addPost)">
+
+    <label for="title">Title:</label>
+    <input
+      type="text"
+      name="title"
+      id="title"
+      ng-model="$ctrl.post.title"
+      ng-minlength="2"
+      ng-class="{'not-valid':addPost.title.$invalid && addPost.title.$touched}"
+      required
+      >
+
+    <label for="body">Body:</label>
+    <input
+      type="text"
+      name="body"
+      id="body"
+      ng-model="$ctrl.post.body"
+      ng-minlength="2"
+      ng-class="{'not-valid':addPost.body.$invalid && addPost.body.$touched}"
+      required
+      >
+    <label for="author">Author:</label>
+    <input
+      type="text"
+      name="author"
+      id="author"
+      ng-model="$ctrl.post.author"
+      ng-minlength="2"
+      ng-class="{'not-valid':addPost.author.$invalid && addPost.author.$touched}"
+      required
+      >
+
+    <label for="image_url">Image URL:</label>
+    <input
+      type="text"
+      name="image_url"
+      id="image_url"
+      ng-model="$ctrl.post.image_url"
+      ng-minlength="2"
+      ng-class="{'not-valid':addPost.image_url.$invalid && addPost.image_url.$touched}"
+      required
+      >
+
+      <input type="submit" name="submit" value="Create Post">
+
+  </form>
+</div>

@@ -1,0 +1,68 @@
+<div class="main">
+  <div class="search-bar">
+    <input type="text" class="search-filter" placeholder="Filter" ng-model="searching">
+
+    <select class="select" ng-init="sort='-votes'" ng-model="sort">
+      <option value="-votes">Votes</option>
+      <option value="title">Title</option>
+      <option value="-date">Date</option>
+    </select>
+  </div>
+
+  <div class="showing-the-page" ng-repeat="post in $ctrl.wholeArray.posts |  filter: {title:searching} | orderBy:sort" >
+
+        <div class="intro-title-auth">
+          <span><a class="title intro-title" ui-sref="home2({editId:post.id})">{{ post.title }}</a></span><br>
+          <span class="author">{{ post.author }}</span>
+        </div>
+
+        <div class="pic-and-comments">
+
+          <div class="image-holder">
+            <img class="actual-pic" ng-src="{{post.image_url}}" height="300" width="500">
+          </div>
+
+          <div class="comments-next-to-pic">
+            <a href="" class="hide-show-comments"><div ng-click="toggle=!toggle">#Comments: {{ post.comments.length }}
+            </div></a>
+
+            <div ng-show="toggle">
+              <div ng-repeat="comment in post.comments">
+                <br><span>-{{ comment.comment }}</span><br><span>From: {{ comment.author }}</span>
+              </div><br>
+              <form name="addComment" ng-submit="$ctrl.newComment($ctrl.newCommentMain, post, addComment)">
+                <label for="comment-author-{{post.id}}">Author</label>
+                <input type="text" id="comment-author-{{post.id}}" name="author" ng-model="$ctrl.newCommentMain.author"
+                ng-minlength="1"
+                ng-class="{'not-valid':addComment.author.$touched && addComment.author.$invalid}"
+                required>
+                <label for="comment-comment-{{post.id}}">Comment</label>
+                <input type="text" id="comment-comment-{{post.id}}" name="comment"
+                ng-model="$ctrl.newCommentMain.comment"
+                ng-minlength="1"
+                ng-class="{'not-valid':addComment.comment.$touched && addComment.comment.$invalid}"
+                required>
+                <input type="submit" name="submit" value="Add Comment">
+              </form>
+            </div>
+          </div>
+        </div>
+
+        <br>
+        <div class="delete-button-containter">
+          <button class="delete-button" ng-click="$ctrl.removePost(post)">Remove Post</button>
+        </div>
+        <br>{{ post.body }}
+        <p am-time-ago="post.date"></p>
+        <p>{{post.date | amCalendar:referenceTime:formats}}</p>
+
+        <div class="votes">
+          <!-- <button class="go-up" type="button" ng-click="$ctrl.upVote(post)" value="Up Vote">Up Vote</button> -->
+          <img src="./images/tup.png" height="60" width="40" ng-click="$ctrl.upVote(post)">
+          <p class="votes-show">Votes:{{ post.votes }}</p>
+          <img src="./images/tdown.png" height="60" width="40" ng-click="$ctrl.downVote(post)">
+          <!-- <button class="go-down" type="button" ng-click="$ctrl.downVote(post)" value="Down Vote">Down Vote</button> -->
+        </div>
+
+  </div>
+</div>

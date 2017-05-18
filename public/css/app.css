@@ -1,0 +1,162 @@
+body {
+  background-color: #f3f1ed;
+}
+
+
+.media-object {
+  max-width: 200px;
+}
+
+.votes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.votes-show {
+  margin: 0 10px 0 10px;
+}
+
+.search-form {
+  margin-top: 4px;
+}
+
+main.container {
+  margin-bottom: 4em;
+}
+
+.not-valid {
+  border: 1px solid red;
+}
+
+.showing-the-page {
+  border: 2px solid #dddddd;
+  margin-top: 19px;
+  background-color: white;
+  border-radius: 30px;
+  padding: 10px 5px 20px 5px
+}
+.title {
+  font-size: 32px;
+  text-align: center;
+}
+.author {
+  font-size: 24px;
+  text-align: center;
+  padding-bottom: 15px;
+}
+.image-and-comments {
+  display: inline-flex;
+  align-content: space-around;
+
+}
+.image-edit {
+  display: inline-flex;
+  align-content: space-around;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.add-comments-edit-page {
+  padding-bottom: 20px;
+}
+
+.search-bar {
+  text-align: right;
+  padding-right: 15px;
+  margin-right: 15px;
+}
+.add-post {
+  margin-left: 15px;
+  margin-top: 20px;
+}
+.pic-and-comments {
+  display: inline-flex;
+  align-items: center;
+  align-content: center;
+}
+.intro-title-auth {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-content: center;
+}
+.intro-title {
+  text-decoration: none;
+}
+.intro-title:link {
+  color:	#e66e63;
+}
+.intro-title:visited {
+  color: #e66e63;
+}
+.intro-title:hover {
+  color: #316687;
+}
+.logo {
+  text-decoration: none;
+}
+.logo:link {
+    color: black;
+}
+.logo:visited {
+    color: black;
+}
+.logo:hover {
+    color: #e30505;
+}
+.hide-show-comments {
+  text-decoration: none;
+}
+.hide-show-comments:link, .hide-show-comments:visited {
+  color: black;
+}
+.hide-show-comments:hover {
+  color: #316687;
+}
+
+.pic-and-comments {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: space-around;
+  justify-content: space-around;
+}
+
+.image-holder {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  margin: 0 15px 15px 0;
+  position: static;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 50%;
+
+}
+
+.comments-next-to-pic {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: flex-start;
+  justify-content: center;
+  margin: 0 10px 15px 15px;
+  flex-shrink: 0;
+  flex-grow: 0;
+  flex-basis: 50%;
+}
+.actual-pic {
+  border-radius: 5px;
+}
+.delete-button {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  text-align: right;
+  background-color: #e66e63;
+  font-size: 20px;
+}
+.delete-button-containter {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+}
